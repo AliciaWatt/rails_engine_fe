@@ -14,4 +14,8 @@ class RailsEngineFacade
       Item.new(item_data)
     end
   end
+
+  def self.get_item(id)
+    Item.new(RailsEngineService.get_item(id)[:data])
+  end
 end

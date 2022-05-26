@@ -18,4 +18,8 @@ class RailsEngineService
   def self.get_merchant_items(id)
     get_url("/merchants/#{id}/items")
   end
+
+  def self.get_item(id)
+    get_url("/items/#{id}")
+  end
 end

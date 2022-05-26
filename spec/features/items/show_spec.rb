@@ -1,10 +1,7 @@
 require "rails_helper"
 
 RSpec.describe "item show page" do
-  let!(:attributes_merchant) { {id: 1, type: "model", attributes: {name: "Morgs"}} }
-  let!(:merchant) { Merchant.new(attributes_merchant) }
-  let!(:attributes) { {id: 1, type: "item", attributes: {name: "Clark", description: "a description", unit_price: 5.49, merchant_id: merchant.id}} }
-  let!(:item) { Item.new(attributes) }
+  let!(:item) { RailsEngineFacade.get_item("4") }
 
   it "shows item attributes" do
     visit "/items/#{item.id}"

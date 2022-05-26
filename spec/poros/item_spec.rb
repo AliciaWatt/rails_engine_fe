@@ -15,6 +15,6 @@ RSpec.describe "item poro" do
     expect(item.description).to eq("a description")
     expect(item.unit_price).to eq(7.99)
     expect(item.id).to eq(1)
-    expect(item.merchant.id).to eq(1)
+    expect(item.merchant_id).to eq(1)
   end
 end

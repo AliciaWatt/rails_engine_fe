@@ -7,7 +7,7 @@
     <ul>
       <% @items.each do |item| %>
       <div class=<%= "item_#{item.id}" %> >
-        <li><%= item.name %></li>
+        <li><%= link_to "#{item.name}", "/items/#{item.id}" %></li>
       </div>
       <% end %>
     </ul>
