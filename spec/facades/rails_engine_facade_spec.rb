@@ -34,4 +34,12 @@ RSpec.describe "Rails Engine Facade" do
       expect(merchant_items).to be_a(Item)
     end
   end
+  describe "get_item" do
+    let!(:id) { "1" }
+    let!(:item) { RailsEngineFacade.get_item(id) }
+
+    it "returns an item object" do
+      expect(item).to be_a(Item)
+    end
+  end
 end

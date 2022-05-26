@@ -59,6 +59,46 @@ RSpec.describe "rails_engine_service" do
 
       expect(merchant_items_data[:data][0][:attributes]).to have_key(:name)
       expect(merchant_items_data[:data][0][:attributes][:name]).to be_a(String)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:description)
+      expect(merchant_items_data[:data][0][:attributes][:description]).to be_a(String)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:unit_price)
+      expect(merchant_items_data[:data][0][:attributes][:unit_price]).to be_a(Float)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:merchant_id)
+      expect(merchant_items_data[:data][0][:attributes][:merchant_id]).to be_a(Integer)
+    end
+  end
+
+  describe "get_item" do
+    let!(:id) { "1" }
+    let!(:item_data) { RailsEngineService.get_item(id) }
+    it "returns the correct data format" do
+      expect(item_data).to be_a(Hash)
+      expect(item_data).to have_key(:data)
+      expect(item_data[:data]).to be_a(Hash)
+
+      expect(item_data[:data]).to have_key(:id)
+      expect(item_data[:data][:id]).to be_a(String)
+
+      expect(item_data[:data]).to have_key(:type)
+      expect(item_data[:data][:type]).to eq("item")
+
+      expect(item_data[:data]).to have_key(:attributes)
+      expect(item_data[:data][:attributes]).to be_a(Hash)
+
+      expect(item_data[:data][:attributes]).to have_key(:name)
+      expect(item_data[:data][:attributes][:name]).to be_a(String)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:description)
+      expect(merchant_items_data[:data][0][:attributes][:description]).to be_a(String)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:unit_price)
+      expect(merchant_items_data[:data][0][:attributes][:unit_price]).to be_a(Float)
+
+      expect(merchant_items_data[:data][0][:attributes]).to have_key(:merchant_id)
+      expect(merchant_items_data[:data][0][:attributes][:merchant_id]).to be_a(Integer)
     end
   end
 end
