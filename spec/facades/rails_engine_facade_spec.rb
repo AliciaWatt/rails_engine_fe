@@ -7,7 +7,7 @@ RSpec.describe "Rails Engine Facade" do
 
     it "returns an array of merchant objects" do
       expect(results).to be_a(Array)
-      expect(merchant).to be_a(Merchant)
+      expect(merchants).to be_a(Merchant)
     end
   end
 

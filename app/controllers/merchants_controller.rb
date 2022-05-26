@@ -17,4 +17,4 @@ class MerchantsController < ApplicationController
   def get_merchant_items
     @items = RailsEngineFacade.get_merchant_items(params[:id])
   end
-end\
+end
