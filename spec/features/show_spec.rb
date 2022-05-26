@@ -13,12 +13,14 @@ RSpec.describe do
     expect(page).to have_content(merchant.name)
   end
 
-  it "lists all the items the merchant sells" do
+  it "lists all the items the merchant sells and each item name is a link to that items show page" do
     visit "/merchants/#{id}"
 
     within "div.itmes" do
       within "div.item_#{item.id}" do
         expect(page).to have_content(item.name)
+        click_link item.name.to_s
+        expect(current_path).to eq("/items/#{item.id}")
       end
     end
   end
